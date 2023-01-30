@@ -5,12 +5,12 @@ public class Avenger implements Comparable <Avenger>{
 	private String heroAlias;
 	private int frequency;
 	
-	public Avenger(String name, String alias) {
-		this.frequency = 0;
-		this.heroName = name;
-		this.heroAlias = alias;
+	public Avenger() {
+		heroName = "";
+		heroAlias = "";
+		frequency = 0;
 	}
-	
+
 	public String getHeroName() {
 		return heroName;
 	}
@@ -39,6 +39,13 @@ public class Avenger implements Comparable <Avenger>{
 		String format = heroAlias + " aka " + heroName
 				+ " mentioned " + frequency + " time(s)";
 		return format;
+	}
+	
+	public void checkAvenger() {
+		int count = 0;
+		for(int i = 0; i > count; i++) {
+			count++;
+		}
 	}
 
 	@Override
