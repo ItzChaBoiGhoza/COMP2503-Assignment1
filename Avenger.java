@@ -8,7 +8,7 @@ public class Avenger implements Comparable <Avenger>{
 	public Avenger() {
 		heroName = "";
 		heroAlias = "";
-		frequency = 0;
+		frequency = 1;
 	}
 
 	public String getHeroName() {
@@ -56,7 +56,17 @@ public class Avenger implements Comparable <Avenger>{
 		else return heroName.compareTo(o.getHeroName());
 	}
 	
-	
+	public boolean equalAvenger(Object o) {
+		if(this == o) {
+			return true;
+		}
+		if(o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Avenger avenger = (Avenger)o;
+		return heroAlias == avenger.heroAlias;
+		
+	}
 	
 	
 

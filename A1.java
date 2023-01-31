@@ -1,8 +1,8 @@
 package Names;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
-
 
 public class A1 {
 	
@@ -51,6 +51,9 @@ public class A1 {
 		avengerList.add(AvengerObject("war machine", "rhodes"));
 		avengerList.add(AvengerObject("spiderman", "parker"));
 		avengerList.add(AvengerObject("wintersoldier", "barnes"));
+		
+		Collections.sort(avengerList);
+		Collections.sort(avengerList, new CompAvenger());
 		
 		
 		A1 avengersNames = new A1();
