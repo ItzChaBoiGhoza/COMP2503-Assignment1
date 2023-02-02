@@ -1,4 +1,4 @@
-package Names;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class A1 {
 
+	@SuppressWarnings("resource")
 	public void run() {
 		Scanner input;
 
