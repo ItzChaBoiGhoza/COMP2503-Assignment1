@@ -39,17 +39,8 @@ public class A1 {
 		}
 	}
 
-	private static void printAvengerList(ArrayList<Avenger> avengerlist) {
-		System.out.println("Alias\t\tLast name");
-		for (int i = 0; i < avengerlist.size(); i++) {
-			System.out.println(avengerlist.get(i).getHeroAlias() + "\t\t" + avengerlist.get(i).getHeroName());
-		}
-
-	}
-
 	public static void main(String[] args) {
 		ArrayList<Avenger> avengerList = new ArrayList<Avenger>();
-		
 		avengerList.add(new Avenger("captainamerica", "rogers"));
 		avengerList.add(new Avenger("ironman", "stark"));
 		avengerList.add(new Avenger("blackwidow", "romanoff"));
