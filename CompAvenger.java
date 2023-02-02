@@ -14,9 +14,11 @@ public class CompAvenger implements Comparator<Avenger> {
 		if(o2.getHeroName() == null) {
 			return -1;
 		}
+		
+	
 		return o1.compareTo(o2);
+	
 	}
-
 }
 
 

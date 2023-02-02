@@ -5,34 +5,26 @@ public class Avenger implements Comparable <Avenger>{
 	private String heroAlias;
 	private int frequency;
 	
-	public Avenger() {
-		heroName = "";
-		heroAlias = "";
-		frequency = 1;
+	public Avenger(String name, String alias) {
+		heroName = name;
+		heroAlias = alias;
+		frequency = 0;
 	}
 
 	public String getHeroName() {
 		return heroName;
 	}
 
-	public void setHeroName(String heroName) {
-		this.heroName = heroName;
-	}
-
 	public String getHeroAlias() {
 		return heroAlias;
-	}
-
-	public void setHeroAlias(String heroAlias) {
-		this.heroAlias = heroAlias;
 	}
 
 	public int getFrequency() {
 		return frequency;
 	}
 
-	public void setFrequency(int frequency) {
-		this.frequency = frequency;
+	public void addFrequency(int frequency) {
+		this.frequency++;
 	}
 	
 	public String toString() {
@@ -40,13 +32,7 @@ public class Avenger implements Comparable <Avenger>{
 				+ " mentioned " + frequency + " time(s)";
 		return format;
 	}
-	
-	public void checkAvenger() {
-		int count = 0;
-		for(int i = 0; i > count; i++) {
-			count++;
-		}
-	}
+
 
 	@Override
 	public int compareTo(Avenger o) {
@@ -54,7 +40,30 @@ public class Avenger implements Comparable <Avenger>{
 			return heroAlias.compareTo(o.getHeroAlias());
 		}
 		else return heroName.compareTo(o.getHeroName());
+		
 	}
+	
+	public int compareMostFrequent(Avenger o) {
+		if(frequency == o.frequency) {
+			return 0;
+		}
+			else if(frequency > o.frequency) {
+			return 1;
+			}
+			else 
+			return -1;
+			}
+	
+	public int compareLeastFrequent(Avenger o) {
+		if(frequency == o.frequency) {
+			return 0;
+			}
+			else if(frequency > o.frequency) {
+			return -1;
+			}
+			else 
+			return 1;
+			}
 	
 	public boolean equalAvenger(Object o) {
 		if(this == o) {
@@ -67,6 +76,7 @@ public class Avenger implements Comparable <Avenger>{
 		return heroAlias == avenger.heroAlias;
 		
 	}
+	
 	
 	
 
