@@ -52,11 +52,10 @@ public class A1 {
 				- if this avenger has already been mentioned, increase the frequency count for the object already in the list.
 				- if this avenger has not been mentioned before, add the newly created avenger to the list, remember to set the frequency.
 		*/
-		File file = new File("./input3.txt");
-		Scanner fileReader = new Scanner(file);
+		Scanner input = new Scanner(System.in);
 		
-		while(fileReader.hasNext()) {
-			String word = fileReader.next().trim().toLowerCase().replaceAll("[^a-z]", "").replaceAll("[0123456789]","").replaceAll("'s","");
+		while(input.hasNext()) {
+			String word = input.next().trim().toLowerCase().replaceAll("[^a-z]", "").replaceAll("[0123456789]","").replaceAll("'s","");
 			if(word.length() > 0) {
 				totalwordcount++;
 				for(int i = 0; i < avengerRoster.length; i++) {
@@ -66,7 +65,6 @@ public class A1 {
 				}
 			}
 		}
-		fileReader.close();
 	}
 
 	/**
