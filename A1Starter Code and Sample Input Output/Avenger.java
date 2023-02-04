@@ -12,10 +12,10 @@ public class Avenger implements Comparable <Avenger>{
 
 	@Override
 	public int compareTo(Avenger o) {
-		if(heroName.compareTo(o.getHeroName()) == 0) {
-			return heroAlias.compareTo(getHeroAlias());
+		if(heroAlias.compareTo(o.getHeroAlias()) == 0) {
+			return heroName.compareTo(getHeroName());
 		} else {
-			return heroName.compareTo(o.getHeroName());
+			return heroAlias.compareTo(o.getHeroAlias());
 		}
 	}
 	
@@ -37,6 +37,6 @@ public class Avenger implements Comparable <Avenger>{
 	
 	
 	public String toString() {
-		return heroAlias + " aka " + heroName + " mentioned " + frequency + " time(s)";
+		return heroAlias + " aka " + heroName + " mentioned " + frequency + " time(s)" + "\n";
 	}
 }

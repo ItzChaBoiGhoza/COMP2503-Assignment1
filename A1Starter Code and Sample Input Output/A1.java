@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 /** 
@@ -26,10 +28,13 @@ public class A1 {
 	public static void main(String[] args) throws FileNotFoundException {
 		A1 a1 = new A1();
 		a1.run();
+		
+		
 	}
 	
 	 public void run() throws FileNotFoundException {
 		readInput();
+		
 		printResults();
 	}
 
@@ -55,7 +60,7 @@ public class A1 {
 		
 		while(fileReader.hasNext()) {
 			String word = fileReader.next().trim().toLowerCase();
-			word = word.replaceAll("'s","").replaceAll("[^a-z]", "").replaceAll("[0123456789]","");
+			word = word.replaceAll("'s","").replaceAll("[^a-z]", "").replaceAll("[0123456789]","".replaceAll(",", ""));
 			
 			if(word.length() > 0) {
 				totalwordcount++;
@@ -86,8 +91,7 @@ public class A1 {
 		System.out.println("All avengers in the order they appeared in the input stream:");
 		// Todo: Print the list of avengers in the order they appeared in the input
 		// Make sure you follow the formatting example in the sample output
-		
-		System.out.println();
+		System.out.println(avengersArrayList.toString());
 		
 		System.out.println("Top " + topN + " most popular avengers:");
 		// Todo: Print the most popular avengers, see the instructions for tie breaking
@@ -99,9 +103,13 @@ public class A1 {
 		// Make sure you follow the formatting example in the sample output		
 		System.out.println();
 
-		System.out.println("All mentioned avengers in alphabetical order:");
+		System.out.println("All mentioned avengers in alphabetical order: \n");
 		// Todo: Print the list of avengers in alphabetical order
 		// Make sure you follow the formatting example in the sample output
-		System.out.println();
+		Collections.sort(avengersArrayList);
+		for(int i = 0; i < avengersArrayList.size(); i++ ) {
+			System.out.println(avengersArrayList.get(i).toString());
+		}
+			
 	}
 }
