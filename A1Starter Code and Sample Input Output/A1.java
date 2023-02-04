@@ -14,7 +14,6 @@ import java.util.Scanner;
 */
 
 public class A1 {
-
 	public String[][] avengerRoster = { { "captainamerica", "rogers" }, { "ironman", "stark" },
 			{ "blackwidow", "romanoff" }, { "hulk", "banner" }, { "blackpanther", "tchalla" }, { "thor", "odinson" },
 			{ "hawkeye", "barton" }, { "warmachine", "rhodes" }, { "spiderman", "parker" },
@@ -22,14 +21,14 @@ public class A1 {
 
 	private int topN = 4;
 	private int totalwordcount = 0;
-	private ArrayList<Avenger> avengersArrayList = new ArrayList<>();
+	private ArrayList<Avenger> avengersArrayList = new ArrayList<Avenger>();
 
 	public static void main(String[] args) throws FileNotFoundException {
 		A1 a1 = new A1();
 		a1.run();
 	}
-
-	public void run() throws FileNotFoundException {
+	
+	 public void run() throws FileNotFoundException {
 		readInput();
 		printResults();
 	}
@@ -39,32 +38,38 @@ public class A1 {
 	 * how many times avengers are mentioned by alias or last name.
 	 * @throws FileNotFoundException 
 	 */
-	
 
 	private void readInput() throws FileNotFoundException {
 		/*
-		In a loop, while the scanner object has not reached end of stream,
-		 	- read a word.
-		 	- clean up the word
-		    - if the word is not empty, add the word count. 
-		    - Check if the word is either an avenger alias or last name then
-				- Create a new avenger object with the corresponding alias and last name.
+		In a loop, while the scanner object has not reached end of stream, 
+		 	- read a word. (done)
+		 	- clean up the word (done)
+		    - if the word is not empty, add the word count. (done)
+		    - Check if the word is either an avenger alias or last name then (done)
+				- Create a new avenger object with the corresponding alias and last name. (done)
 				- if this avenger has already been mentioned, increase the frequency count for the object already in the list.
 				- if this avenger has not been mentioned before, add the newly created avenger to the list, remember to set the frequency.
 		*/
-		Scanner input = new Scanner(System.in);
+		File file = new File("./input3.txt");
+		Scanner fileReader = new Scanner(file);
 		
-		while(input.hasNext()) {
-			String word = input.next().trim().toLowerCase().replaceAll("[^a-z]", "").replaceAll("[0123456789]","").replaceAll("'s","");
+		while(fileReader.hasNext()) {
+			String word = fileReader.next().trim().toLowerCase();
+			word = word.replaceAll("'s","").replaceAll("[^a-z]", "").replaceAll("[0123456789]","");
+			
 			if(word.length() > 0) {
 				totalwordcount++;
 				for(int i = 0; i < avengerRoster.length; i++) {
-					if(word.equals(avengerRoster)) {
-						avengersArrayList.add(null);
+					if(word.equals(avengerRoster[i][0]) || word.equals(avengerRoster[i][1])) {
+						Avenger avenger = new Avenger(avengerRoster[i][1], avengerRoster[i][0]);
+						for(Avenger a : avengersArrayList) {
+							
+						}
 					}
 				}
 			}
 		}
+		fileReader.close();
 	}
 
 	/**
