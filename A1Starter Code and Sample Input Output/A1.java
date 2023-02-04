@@ -50,7 +50,7 @@ public class A1 {
 				- if this avenger has already been mentioned, increase the frequency count for the object already in the list.
 				- if this avenger has not been mentioned before, add the newly created avenger to the list, remember to set the frequency.
 		*/
-		File file = new File("./input3.txt");
+		File file = new File("./input1.txt");
 		Scanner fileReader = new Scanner(file);
 		
 		while(fileReader.hasNext()) {
@@ -62,8 +62,11 @@ public class A1 {
 				for(int i = 0; i < avengerRoster.length; i++) {
 					if(word.equals(avengerRoster[i][0]) || word.equals(avengerRoster[i][1])) {
 						Avenger avenger = new Avenger(avengerRoster[i][1], avengerRoster[i][0]);
-						for(Avenger a : avengersArrayList) {
-							
+						if(avengersArrayList.contains(avenger)) {
+							avengersArrayList.get(avengersArrayList.indexOf(avenger)).addFrequency();
+						} else {
+							avenger.addFrequency();
+							avengersArrayList.add(avenger);
 						}
 					}
 				}
