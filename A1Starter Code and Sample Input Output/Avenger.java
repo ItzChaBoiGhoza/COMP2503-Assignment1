@@ -1,23 +1,33 @@
+import java.util.Comparator;
+
 public class Avenger implements Comparable <Avenger>{
 
 	private String heroName;
 	private String heroAlias;
 	private int frequency;
 	
-	public Avenger(String name, String alias) {
+	public Avenger(String alias, String name) {
 		heroName = name;
 		heroAlias = alias;
 		frequency = 0;
 	}
 
 	@Override
-	public int compareTo(Avenger o) {
-		if(heroName.compareTo(o.getHeroName()) == 0) {
-			return heroAlias.compareTo(getHeroAlias());
-		} else {
-			return heroName.compareTo(o.getHeroName());
-		}
+	public int compareTo(Avenger a) {
+		return this.heroAlias.compareTo(a.getHeroAlias());
 	}
+	
+	public static Comparator<Avenger> MostPopular = new Comparator<Avenger>() {
+		public int compare(Avenger a, Avenger b) {
+			int freq1 = a.getFrequency();
+			int freq2 = b.getFrequency();
+			
+			if(freq2-freq1 == 0) {
+				return a.getHeroAlias().compareTo(b.getHeroAlias());
+			}
+			return freq2-freq1;
+		}
+	};
 	
 	// The equals method must return true if two Avenger objects have the same alias.
 	public boolean equals(Object o) {
