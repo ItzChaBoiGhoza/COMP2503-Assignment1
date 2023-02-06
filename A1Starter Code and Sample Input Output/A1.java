@@ -19,15 +19,28 @@ public class A1 {
 			{ "hawkeye", "barton" }, { "warmachine", "rhodes" }, { "spiderman", "parker" },
 			{ "wintersoldier", "barnes" } };
 
+	/*
+	 * Initialize variables
+	 */
 	private int topN = 4;
 	private int totalwordcount = 0;
+	
+	/*
+	 * Initialize arraylist
+	 */
 	private ArrayList<Avenger> avengersArrayList = new ArrayList<Avenger>();
-
+	
+	/*
+	 * Main method
+	 */
 	public static void main(String[] args) throws FileNotFoundException {
 		A1 a1 = new A1();
 		a1.run();
 	}
 	
+	/*
+	 * Run method
+	 */
 	 public void run() throws FileNotFoundException {
 		readInput();
 		printResults();
@@ -83,7 +96,6 @@ public class A1 {
 
 		System.out.println("All avengers in the order they appeared in the input stream:");
 		// Todo: Print the list of avengers in the order they appeared in the input
-		// Make sure you follow the formatting example in the sample output
 		for(int j = 0; j < avengersArrayList.size(); j++) {
 			System.out.println(avengersArrayList.get(j));
 		}
@@ -91,21 +103,18 @@ public class A1 {
 		
 		System.out.println("Top " + topN + " most popular avengers:");
 		// Todo: Print the most popular avengers, see the instructions for tie breaking
-		// Make sure you follow the formatting example in the sample output
 		Collections.sort(avengersArrayList, Avenger.MostPopular);
 		topFourLoopThrough();
 		System.out.println();
 
 		System.out.println("Top " + topN + " least popular avengers:");
 		// Todo: Print the least popular avengers, see the instructions for tie breaking
-		// Make sure you follow the formatting example in the sample output
 		Collections.sort(avengersArrayList, new LeastPopular());
 		topFourLoopThrough();
 		System.out.println();
 
 		System.out.println("All mentioned avengers in alphabetical order:");
 		// Todo: Print the list of avengers in alphabetical order
-		// Make sure you follow the formatting example in the sample output
 		Collections.sort(avengersArrayList);
 		for(int j = 0; j < avengersArrayList.size(); j++) {
 			System.out.println(avengersArrayList.get(j));
@@ -113,12 +122,19 @@ public class A1 {
 		System.out.println();
 	}
 	
+	/**
+	 * Method to loop through the arraylist
+	 */
 	public void topFourLoopThrough() {
+		//Checks if the size of the arraylist is greater than 2
 		if(avengersArrayList.size() > 2) {
+			//Loop through arraylist and stops when j is 4
+			//prints only 4 elements
 			for(int j = 0; j < 4; j++) {
 				System.out.println(avengersArrayList.get(j));
 			}
 		} else {
+			//prints only 2 elements
 			for(int j = 0; j < 2; j++) {
 				System.out.println(avengersArrayList.get(j));
 			}
